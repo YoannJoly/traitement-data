@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="projetJPA" id="Project-178d" database="MySql" >
+	<schema name="projetjpa" >
+		<table name="acteur" >
+			<column name="id_acteur" type="INT" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="identite" type="VARCHAR" length="60" jt="12" />
+			<column name="url" type="VARCHAR" length="25" jt="12" />
+			<column name="id_imdb" type="VARCHAR" length="10" jt="12" />
+			<index name="pk_acteur" unique="PRIMARY_KEY" >
+				<column name="id_acteur" />
+			</index>
+			<fk name="fk_acteur_naissance" to_schema="projetjpa" to_table="naissance" >
+				<fk_column name="id_acteur" pk="id_naissance" />
+			</fk>
+			<fk name="fk_acteur_role" to_schema="projetjpa" to_table="role" >
+				<fk_column name="id_acteur" pk="id_role" />
+			</fk>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+		<table name="casting" >
+			<column name="id_casting" type="INT" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<index name="pk_casting" unique="PRIMARY_KEY" >
+				<column name="id_casting" />
+			</index>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+		<table name="film" >
+			<column name="id_film" type="INT" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="nom_film" type="VARCHAR" length="100" jt="12" />
+			<column name="url_film" type="VARCHAR" length="40" jt="12" />
+			<column name="plot_film" type="VARCHAR" length="200" jt="12" />
+			<column name="id_imdb_fil" type="VARCHAR" length="10" jt="12" />
+			<column name="langue_film" type="VARCHAR" length="20" jt="12" />
+			<column name="lieu_tournage_film" type="VARCHAR" length="50" jt="12" />
+			<column name="année_sortie_film" type="INT" jt="4" />
+			<index name="pk_film" unique="PRIMARY_KEY" >
+				<column name="id_film" />
+			</index>
+			<fk name="fk_film_genre" to_schema="projetjpa" to_table="genre" >
+				<fk_column name="id_film" pk="id_genre" />
+			</fk>
+			<fk name="fk_film_casting" to_schema="projetjpa" to_table="casting" >
+				<fk_column name="id_film" pk="id_casting" />
+			</fk>
+			<fk name="fk_film_pays" to_schema="projetjpa" to_table="pays" >
+				<fk_column name="id_film" pk="id_pays" />
+			</fk>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+		<table name="genre" >
+			<column name="id_genre" type="INT" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="nom_genre" type="VARCHAR" length="25" jt="12" />
+			<index name="pk_genre" unique="PRIMARY_KEY" >
+				<column name="id_genre" />
+			</index>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+		<table name="naissance" >
+			<column name="id_naissance" type="INT" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="date_naissance" type="DATE" jt="91" />
+			<column name="lieu_naissance" type="VARCHAR" length="100" jt="12" />
+			<index name="pk_naissance" unique="PRIMARY_KEY" >
+				<column name="id_naissance" />
+			</index>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+		<table name="pays" >
+			<column name="id_pays" type="INT" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="nom_pays" type="VARCHAR" length="56" jt="12" />
+			<column name="url_pays" type="VARCHAR" length="25" jt="12" />
+			<index name="pk_pays" unique="PRIMARY_KEY" >
+				<column name="id_pays" />
+			</index>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+		<table name="role" >
+			<column name="id_role" type="INT" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="character_name" type="VARCHAR" length="100" jt="12" />
+			<index name="pk_role" unique="PRIMARY_KEY" >
+				<column name="id_role" />
+			</index>
+			<fk name="fk_role_film" to_schema="projetjpa" to_table="film" >
+				<fk_column name="id_role" pk="id_film" />
+			</fk>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+	</schema>
+	<connector name="MyDb" database="MySql" host="localhost" port="3306" user="root" />
+	<layout name="Default Layout" id="Layout-490" show_column_type="y" show_relation="columns" >
+		<entity schema="projetjpa" name="acteur" color="C1D8EE" x="368" y="48" />
+		<entity schema="projetjpa" name="casting" color="C1D8EE" x="416" y="640" />
+		<entity schema="projetjpa" name="film" color="C1D8EE" x="352" y="384" />
+		<entity schema="projetjpa" name="genre" color="C1D8EE" x="48" y="640" />
+		<entity schema="projetjpa" name="naissance" color="C1D8EE" x="64" y="64" />
+		<entity schema="projetjpa" name="pays" color="C1D8EE" x="624" y="640" />
+		<entity schema="projetjpa" name="role" color="C1D8EE" x="352" y="240" />
+	</layout>
+</project>
