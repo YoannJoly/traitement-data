@@ -51,6 +51,9 @@
 			<fk name="fk_film_pays" to_schema="projetjpa" to_table="pays" >
 				<fk_column name="id_film" pk="id_pays" />
 			</fk>
+			<fk name="fk_film_realisateurs" to_schema="projetjpa" to_table="realisateurs" >
+				<fk_column name="id_film" pk="id_realisateurs" />
+			</fk>
 			<options><![CDATA[engine=InnoDB]]></options>
 		</table>
 		<table name="genre" >
@@ -85,6 +88,17 @@
 			</index>
 			<options><![CDATA[engine=InnoDB]]></options>
 		</table>
+		<table name="realisateurs" >
+			<column name="id_realisateurs" type="INT" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="identite_realisateur" type="VARCHAR" length="60" jt="12" />
+			<column name="url_realisteur" type="VARCHAR" length="25" jt="12" />
+			<index name="pk_realisateurs" unique="PRIMARY_KEY" >
+				<column name="id_realisateurs" />
+			</index>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
 		<table name="role" >
 			<column name="id_role" type="INT" jt="4" mandatory="y" >
 				<identity><![CDATA[AUTO_INCREMENT]]></identity>
@@ -107,6 +121,7 @@
 		<entity schema="projetjpa" name="genre" color="C1D8EE" x="48" y="640" />
 		<entity schema="projetjpa" name="naissance" color="C1D8EE" x="64" y="64" />
 		<entity schema="projetjpa" name="pays" color="C1D8EE" x="624" y="640" />
+		<entity schema="projetjpa" name="realisateurs" color="C1D8EE" x="880" y="640" />
 		<entity schema="projetjpa" name="role" color="C1D8EE" x="352" y="240" />
 	</layout>
 </project>

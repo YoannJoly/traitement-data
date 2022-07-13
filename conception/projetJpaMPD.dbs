@@ -26,6 +26,9 @@
 			<index name="pk_casting" unique="PRIMARY_KEY" >
 				<column name="id_casting" />
 			</index>
+			<fk name="fk_casting_acteur" to_schema="projetjpa" to_table="acteur" >
+				<fk_column name="id_casting" pk="id_acteur" />
+			</fk>
 			<options><![CDATA[engine=InnoDB]]></options>
 		</table>
 		<table name="film" >
