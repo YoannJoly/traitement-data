@@ -9,5 +9,8 @@
         <module name="imdbProject" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="imdbProject" target="18" />
+    </bytecodeTargetLevel>
   </component>
 </project>

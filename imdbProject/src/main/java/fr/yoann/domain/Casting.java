@@ -14,22 +14,22 @@ public class Casting {
     @Column(name = "id_casting", nullable = false)
     private int id;
 
-    @Column(name = "acteur")
-    private Acteur acteur;
-
-    public Casting(final Acteur acteur) {
-        this.acteur = acteur;
-    }
+//    @Column(name = "acteur")
+//    private Acteur acteur;
+//
+//    public Casting(final Acteur acteur) {
+//        this.acteur = acteur;
+//    }
 
     public int getId() {
         return id;
     }
 
-    public Acteur getActeur() {
-        return acteur;
-    }
-
-    public void setActeur(final Acteur acteur) {
-        this.acteur = acteur;
-    }
+//    public Acteur getActeur() {
+//        return acteur;
+//    }
+//
+//    public void setActeur(final Acteur acteur) {
+//        this.acteur = acteur;
+//    }
 }

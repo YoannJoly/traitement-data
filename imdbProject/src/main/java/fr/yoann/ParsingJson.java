@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class ParseJson {
+public class ParsingJson {
 
     public static void main(String[] args) throws IOException, JSONException {
         //getActeurFromJson();
@@ -23,25 +23,31 @@ public class ParseJson {
         //getRealisateurFromJson();
     }
 
-    public static void getActeurFromJson() throws IOException, JSONException {
+    public static @NotNull JSONArray getActeurFromJson() throws IOException, JSONException {
         JSONArray jsonArray = new JSONArray(JsonToString());
+        JSONArray finalJsonArray = new JSONArray();
         for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject jsonObject = jsonArray.getJSONObject(i);
-            System.out.println("identite : " + jsonObject.getString("identite"));
-            System.out.println("url : " + jsonObject.getString("url"));
-            System.out.println("id : " + jsonObject.getString("id") + "\n");
+//            System.out.println("identite : " + jsonObject.getString("identite"));
+//            System.out.println("url : " + jsonObject.getString("url"));
+//            System.out.println("id : " + jsonObject.getString("id") + "\n");
+            finalJsonArray.put(jsonObject);
         }
+        return finalJsonArray;
     }
 
-    public static void getNaissanceFromJson() throws IOException, JSONException {
+    public static @NotNull JSONArray getNaissanceFromJson() throws IOException, JSONException {
         JSONArray jsonArray = new JSONArray(JsonToString());
+        JSONArray finalJsonArray = new JSONArray();
         for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject jsonObject = jsonArray.getJSONObject(i);
             String naissance = jsonObject.getString("naissance");
             JSONObject jsonObject2 = new JSONObject(naissance);
-            System.out.println("dateNaissance : " + jsonObject2.getString("dateNaissance"));
-            System.out.println("lieuNaissance : " + jsonObject2.getString("lieuNaissance") + "\n");
+//            System.out.println("dateNaissance : " + jsonObject2.getString("dateNaissance"));
+//            System.out.println("lieuNaissance : " + jsonObject2.getString("lieuNaissance") + "\n");
+            finalJsonArray.put(jsonObject);
         }
+        return finalJsonArray;
     }
 
     public static @NotNull JSONArray getRoleFromJson() throws IOException, JSONException {

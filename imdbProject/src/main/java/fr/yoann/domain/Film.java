@@ -21,7 +21,7 @@ public class Film {
     @Column(name = "url_film", length = 40)
     private String urlFilm;
 
-    @Column(name = "plot_film", length = 200)
+    @Column(name = "plot_film", columnDefinition = "LONGTEXT")
     private String plotFilm;
 
     @Column(name = "id_imdb_film", length = 10)
@@ -30,37 +30,47 @@ public class Film {
     @Column(name = "langue_film", length = 20)
     private String langueFilm;
 
-    @Column(name = "lieu_tournage_film", length = 50)
-    private String lieuTournageFilm;
+//    @Column(name = "lieu_tournage_film", length = 50)
+//    private String lieuTournageFilm;
 
     @Column(name = "année_sortie_film")
     private int anneeSortieFilm;
 
-    @Column(name = "genre")
-    private Genre genre;
+//    @Column(name = "genre")
+//    private Genre genre;
+//
+//    @Column(name = "casting")
+//    private Casting casting;
+//
+//    @Column(name = "pays")
+//    private Pays pays;
+//
+//    @Column(name = "realisateurs")
+//    private Realisateurs realisateurs;
 
-    @Column(name = "casting")
-    private Casting casting;
-
-    @Column(name = "pays")
-    private Pays pays;
-
-    @Column(name = "realisateurs")
-    private Realisateurs realisateurs;
-
-    public Film(final String nomFilm, final String urlFilm, final String plotFilm, final String idImdbFilm, final String langueFilm, final String lieuTournageFilm, final int anneeSortieFilm, final Genre genre, final Casting casting, final Pays pays, final Realisateurs realisateurs) {
+    public Film(final String nomFilm, final String urlFilm, final String plotFilm, final String idImdbFilm, final String langueFilm, final int anneeSortieFilm) {
         this.nomFilm = nomFilm;
         this.urlFilm = urlFilm;
         this.plotFilm = plotFilm;
         this.idImdbFilm = idImdbFilm;
         this.langueFilm = langueFilm;
-        this.lieuTournageFilm = lieuTournageFilm;
         this.anneeSortieFilm = anneeSortieFilm;
-        this.genre = genre;
-        this.casting = casting;
-        this.pays = pays;
-        this.realisateurs = realisateurs;
     }
+
+
+//    public Film(final String nomFilm, final String urlFilm, final String plotFilm, final String idImdbFilm, final String langueFilm, final String lieuTournageFilm, final int anneeSortieFilm, final Genre genre, final Casting casting, final Pays pays, final Realisateurs realisateurs) {
+//        this.nomFilm = nomFilm;
+//        this.urlFilm = urlFilm;
+//        this.plotFilm = plotFilm;
+//        this.idImdbFilm = idImdbFilm;
+//        this.langueFilm = langueFilm;
+//        this.lieuTournageFilm = lieuTournageFilm;
+//        this.anneeSortieFilm = anneeSortieFilm;
+//        this.genre = genre;
+//        this.casting = casting;
+//        this.pays = pays;
+//        this.realisateurs = realisateurs;
+//    }
 
     public int getId() {
         return id;
@@ -106,13 +116,13 @@ public class Film {
         this.langueFilm = langueFilm;
     }
 
-    public String getLieuTournageFilm() {
-        return lieuTournageFilm;
-    }
-
-    public void setLieuTournageFilm(final String lieuTournageFilm) {
-        this.lieuTournageFilm = lieuTournageFilm;
-    }
+//    public String getLieuTournageFilm() {
+//        return lieuTournageFilm;
+//    }
+//
+//    public void setLieuTournageFilm(final String lieuTournageFilm) {
+//        this.lieuTournageFilm = lieuTournageFilm;
+//    }
 
     public int getAnneeSortieFilm() {
         return anneeSortieFilm;
@@ -122,35 +132,35 @@ public class Film {
         this.anneeSortieFilm = anneeSortieFilm;
     }
 
-    public Genre getGenre() {
-        return genre;
-    }
-
-    public void setGenre(final Genre genre) {
-        this.genre = genre;
-    }
-
-    public Casting getCasting() {
-        return casting;
-    }
-
-    public void setCasting(final Casting casting) {
-        this.casting = casting;
-    }
-
-    public Pays getPays() {
-        return pays;
-    }
-
-    public void setPays(final Pays pays) {
-        this.pays = pays;
-    }
-
-    public Realisateurs getRealisateurs() {
-        return realisateurs;
-    }
-
-    public void setRealisateurs(final Realisateurs realisateurs) {
-        this.realisateurs = realisateurs;
-    }
+//    public Genre getGenre() {
+//        return genre;
+//    }
+//
+//    public void setGenre(final Genre genre) {
+//        this.genre = genre;
+//    }
+//
+//    public Casting getCasting() {
+//        return casting;
+//    }
+//
+//    public void setCasting(final Casting casting) {
+//        this.casting = casting;
+//    }
+//
+//    public Pays getPays() {
+//        return pays;
+//    }
+//
+//    public void setPays(final Pays pays) {
+//        this.pays = pays;
+//    }
+//
+//    public Realisateurs getRealisateurs() {
+//        return realisateurs;
+//    }
+//
+//    public void setRealisateurs(final Realisateurs realisateurs) {
+//        this.realisateurs = realisateurs;
+//    }
 }

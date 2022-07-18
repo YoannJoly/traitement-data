@@ -26,6 +26,7 @@ public class Naissance {
         this.lieuNaissance = lieuNaissance;
     }
 
+
     public int getId() {
         return id;
     }
@@ -44,5 +45,10 @@ public class Naissance {
 
     public void setLieuNaissance(final String lieuNaissance) {
         this.lieuNaissance = lieuNaissance;
+    }
+
+    @Override
+    public String toString() {
+        return "Naissance{" + "id=" + id + ", dateNaissance=" + dateNaissance + ", lieuNaissance='" + lieuNaissance + '\'' + '}';
     }
 }
