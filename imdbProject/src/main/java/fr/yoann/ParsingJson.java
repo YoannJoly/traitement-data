@@ -9,18 +9,20 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ParsingJson {
 
     public static void main(String[] args) throws IOException, JSONException {
-        //getActeurFromJson();
-        //getNaissanceFromJson();
-        //System.out.println(getRoleFromJson());
-        //getFilmFromJson();
-        //getCastingFromJson();
-        //getGenreFromJson();
-        //getPaysFromJson();
-        //getRealisateurFromJson();
+//        getActeurFromJson();
+//        getNaissanceFromJson();
+//        System.out.println(getRoleFromJson());
+//        getFilmFromJson();
+//        getCastingFromJson();
+//        System.out.println(getGenreFromJson());
+//        getPaysFromJson();
+//        getRealisateurFromJson();
     }
 
     public static @NotNull JSONArray getActeurFromJson() throws IOException, JSONException {
@@ -85,22 +87,36 @@ public class ParsingJson {
         }
     }
 
-    public static void getGenreFromJson() throws IOException, JSONException {
+    public static @NotNull List<String> getGenreFromJson() throws IOException, JSONException {
+        List<String> list = new ArrayList<>();
         for (int j = 0; j < getFilmFromJson().length(); j++) {
             JSONArray jsonArray = getFilmFromJson().getJSONArray(j);
             String film = jsonArray.getJSONObject(j).getString("film");
             JSONObject jsonObject = new JSONObject(film);
-            System.out.println("nom : " + jsonObject.getString("genres"));
+            list.add(jsonObject.getString("genres"));
+            System.out.println("Nombres de genres : " + list.size());
+            // System.out.println("nom : " + jsonObject.getString("genres"));
         }
+        return list;
     }
 
-    public static void getPaysFromJson() throws IOException, JSONException {
+    public static @NotNull List<JSONObject> getPaysFromJson() throws IOException, JSONException {
+        List<JSONObject> listPays = new ArrayList<>();
         for (int j = 0; j < getFilmFromJson().length(); j++) {
             JSONArray jsonArray = getFilmFromJson().getJSONArray(j);
             String film = jsonArray.getJSONObject(j).getString("film");
             JSONObject jsonObject = new JSONObject(film);
-            System.out.println("Pays : " + jsonObject.getString("pays"));
+            String pays = "Pays non défini";
+            if (jsonObject.getString("pays") != null) {
+                pays = jsonObject.getString("pays");
+            }
+            JSONObject jsonObject2 = new JSONObject(pays);
+//            System.out.println(jsonObject2);
+            listPays.add(jsonObject2);
+            System.out.println("Nombres de pays : " + listPays.size());
+//
         }
+        return listPays;
     }
 
     public static void getRealisateurFromJson() throws IOException, JSONException {

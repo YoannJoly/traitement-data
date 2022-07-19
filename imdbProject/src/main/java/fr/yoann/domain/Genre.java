@@ -14,7 +14,7 @@ public class Genre {
     @Column(name = "id_genre", nullable = false)
     private int id;
 
-    @Column(name = "nom_genre", length = 25)
+    @Column(name = "nom_genre", length = 50)
     private String nomGenre;
 
     public Genre(final String nomGenre) {

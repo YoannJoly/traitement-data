@@ -17,7 +17,7 @@ public class Pays {
     @Column(name = "nom_pays", length = 56)
     private String nomPays;
 
-    @Column(name = "url_pays", length = 25)
+    @Column(name = "url_pays", length = 50)
     private String urlPays;
 
     public Pays(final String nomPays, final String urlPays) {
